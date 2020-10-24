@@ -1,0 +1,11 @@
+diff --git a/node_modules/typeorm/error/QueryFailedError.d.ts b/node_modules/typeorm/error/QueryFailedError.d.ts
+index da75f94..85c914f 100644
+--- a/node_modules/typeorm/error/QueryFailedError.d.ts
++++ b/node_modules/typeorm/error/QueryFailedError.d.ts
+@@ -3,4 +3,6 @@
+ */
+ export declare class QueryFailedError extends Error {
+     constructor(query: string, parameters: any[] | undefined, driverError: any);
++    code: string;
++    table: string;
+ }

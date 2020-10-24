@@ -1,0 +1,62 @@
+{
+  "name": "pocket-todo",
+  "version": "1.0.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "ts-node src/app.ts ",
+    "build": "tsc",
+    "postinstall": "YARN_PRODUCTION=false patch-package",
+    "develop": "nodemon",
+    "lint": "eslint . --ext ts",
+    "lint:fix": "eslint . --ext ts --fix"
+  },
+  "dependencies": {
+    "@drdgvhbh/postgres-error-codes": "0.0.6",
+    "class-validator": "0.12.2",
+    "dotenv": "8.2.0",
+    "jsonwebtoken": "8.5.1",
+    "koa": "2.13.0",
+    "koa-bodyparser": "4.3.0",
+    "koa-jwt": "4.0.0",
+    "koa-logger": "3.2.1",
+    "koa-router": "9.4.0",
+    "lodash": "4.17.20",
+    "pg": "8.3.2",
+    "reflect-metadata": "0.1.13",
+    "typeorm": "0.2.25"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "8.5.0",
+    "@types/koa": "2.11.4",
+    "@types/koa-bodyparser": "4.3.0",
+    "@types/koa-json": "2.0.18",
+    "@types/koa-logger": "3.1.1",
+    "@types/koa-router": "7.4.1",
+    "@types/lodash": "4.14.159",
+    "@types/node": "14.6.0",
+    "@typescript-eslint/eslint-plugin": "3.9.1",
+    "@typescript-eslint/parser": "3.9.1",
+    "eslint": "7.7.0",
+    "eslint-config-airbnb-base": "14.1.0",
+    "eslint-import-resolver-typescript": "2.2.1",
+    "eslint-plugin-import": "2.22.0",
+    "husky": "4.2.5",
+    "lint-staged": "10.2.11",
+    "nodemon": "2.0.4",
+    "patch-package": "6.2.2",
+    "ts-node": "8.10.2",
+    "typescript": "3.9.7"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,js}": [
+      "npm run lint:fix",
+      "npm run lint"
+    ]
+  }
+}

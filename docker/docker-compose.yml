@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  todo-api:
+    container_name: todo-api
+    build: ..
+    environment:
+      PORT: 8000
+      NODE_ENV: development
+      JWT_SECRET: brachistochrone
+      POSTGRES_URL: postgres://test:test@postgres/pocket-todo
+    ports:
+      - 8000:8000
+    depends_on:
+      - postgres
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+
+  postgres:
+    container_name: postgres
+    restart: always
+    image: postgres
+    ports:
+      - 8001:5432
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: pocket-todo
